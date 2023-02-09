@@ -1,0 +1,56 @@
+<app-home></app-home>
+<body style="background-color:#1c87c9;">
+    <div> <h1 id="one">please fill the Registration form </h1> </div>
+
+    
+<form (submit)="fun1()" #form1="ngForm" >
+    <div style="color: #2ecc71"> Enter user Email  <input type="text" name="user_email" [(ngModel)]="UserObj.useremail" required #useremail="ngModel"
+         pattern="[A-Za-z0-9+_.-]+@(.+)$">
+
+         <div class="alert alert-danger" [hidden]="useremail.valid || useremail.pristine" style="color:red;" > Email is required upper and lower case max 10</div>
+
+        <!--<small  class="text-danger" [class.d-none]="useremail.valid || useremail.untouched">Email Id Is required Field</small> 
+        <div *ngIf="useremail.errors?.['required']" style="color:red;">
+            Email is required.
+           </div>
+        -->
+        
+    </div> <br>
+    <div style="color: #2ecc71"> Enter User passwod  <input type="text" name="passwd" [(ngModel)]="UserObj.passwd" required #passwd="ngModel"
+       pattern="[A-Za-z0-9]{4,10}">
+        <!--<small  class="text-danger" [class.d-none]="passwd.valid || passwd.untouched">Password Is required Field</small>
+        <div *ngIf="passwd.errors?.['required']" style="color:red;">
+            passwd is required.
+           </div>
+        -->
+        <div class="alert alert-danger" [hidden]="passwd.valid || passwd.pristine" style="color:red;"> passwd is required</div>
+    </div> <br>
+    <div style="color: #2ecc71">Enter  Name  <input type="text" name="userName" [(ngModel)]="UserObj.username" required #username="ngModel"
+         pattern="[A-Za-z]{4,8}" >
+
+         <div class="alert alert-danger" [hidden]="username.valid || username.pristine" style="color:red;" > Name is required</div>
+
+        
+       <!-- <small  class="text-danger" [class.d-none]="username.valid || username.untouched">User Name Is required Field</small></div> -->
+   <!--<div> Enter student mailId <input type="text" name="mailid" [(ngModel)]="UserObj.mailid"></div>
+<div>Enter password <input type="text" name="passwod" [(ngModel)]="UserObj.passwod"></div>
+
+<div *ngIf="username.errors?.['required']" style="color:red;">
+            Name is required.
+           </div>
+-->
+
+     <br>
+        <!--<input type="submit" value="submit" [disabled]="fun.invalid"></div>
+</form>
+ <h2> 
+ {{ UserObj.useremail }}
+</h2> -->
+<div>
+<button [disabled]="!(form1.form.valid)" type="submit">submit</button>
+</div>
+<!--
+<div>
+<small class="float-right" [routerLink]="['/login']"> <br> <button>Go tO Home</button>  </small> <br>
+</div>
+-->

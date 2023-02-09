@@ -1,0 +1,41 @@
+<app-navigationbar></app-navigationbar>
+<body style="background-color:#1c87c9;">
+  <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' > -->
+  <i class='fa fa-home green-color' ></i>
+  <div class="container">
+      <h1 id="one">Login Form</h1>
+      <form #loginform="ngForm" (ngSubmit)="loginUser()"  name="RegForm" onsubmit="return regdata">
+        <br>
+        <div class="form-group">
+          <label for="email">Email :  </label>
+          <input matInput type="email" class="form-control" id="email" placeholder="Enter email" name="useremail" [(ngModel)]="userObj.useremail" required #useremail="ngModel"
+         >
+         <!-- <small  class="text-danger" [class.d-none]="useremail.valid || useremail.untouched">Email Id Is required Field</small>
+         <div *ngIf="useremail.errors?.['required']" style="color:red;">
+         Email is required.
+        </div>\
+        -->
+        <div class="alert alert-danger" [hidden]="useremail.valid || useremail.pristine" style="color:red;"> email is required</div>
+
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" [(ngModel)]="userObj.passwd" required #passwd="ngModel"
+          >
+         <!-- <small  class="text-danger" [class.d-none]="passwd.valid || passwd.untouched">Password Is required Field</small> 
+         <div *ngIf="passwd.errors?.['required']" style="color:red;">
+          passwod is required.
+         </div> -->
+         <div class="alert alert-danger" [hidden]="passwd.valid || passwd.pristine" style="color:red;"> passwd is required</div>
+        </div>
+        <br>
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-info">login</button>
+      </form>
+     <!-- <small class="float-right" click="gotoregistration()">New user ? Register Here </small> -->
+
+    </div>
+    
